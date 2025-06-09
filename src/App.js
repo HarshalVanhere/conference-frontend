@@ -4,7 +4,6 @@ import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import SpeakersSection from './components/SpeakersSection';
 import TimelineSection from './components/TimelineSection';
-import RegistrationCTA from './components/RegistrationCTA';
 import ParticlesBackground from './components/ParticlesBackground';
 
 const theme = createTheme({
@@ -79,7 +78,6 @@ function App() {
           <SpeakersSection />
           <TimelineSection />
         </main>
-        <RegistrationCTA />
       </Box>
     </ThemeProvider>
   );
