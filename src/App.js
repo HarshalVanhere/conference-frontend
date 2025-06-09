@@ -5,7 +5,6 @@ import HeroSection from './components/HeroSection';
 import SpeakersSection from './components/SpeakersSection';
 import AboutUs from './components/AboutUs';
 import TimelineSection from './components/TimelineSection';
-import ParticlesBackground from './components/ParticlesBackground';
 import Footer from './components/Footer';
 
 const theme = createTheme({
@@ -66,21 +65,19 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ParticlesBackground />
       <Box sx={{ 
         display: 'flex', 
         flexDirection: 'column',
         minHeight: '100vh',
         position: 'relative',
-        zIndex: 1,
       }}>
         <Header />
-        <main>
+        <Box component="main" sx={{ flexGrow: 1, position: 'relative' }}>
           <HeroSection />
           <SpeakersSection />
           <AboutUs />
           <TimelineSection />
-        </main>
+        </Box>
         <Footer />
       </Box>
     </ThemeProvider>

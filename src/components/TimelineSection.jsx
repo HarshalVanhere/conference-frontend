@@ -47,8 +47,8 @@ const TimelineSection = () => {
     <Box
       ref={ref}
       sx={{
-        py: { xs: 6, md: 8 },
-        background: 'linear-gradient(180deg, #e9ecef 0%, #f8f9fa 100%)',
+        py: { xs: 4, md: 6 },
+        background: 'linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}
