@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme, CssBaseline, Box } from '@mui/material';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import SpeakersSection from './components/SpeakersSection';
+import AboutUs from './components/AboutUs';
 import TimelineSection from './components/TimelineSection';
 import ParticlesBackground from './components/ParticlesBackground';
 import Footer from './components/Footer';
@@ -77,6 +78,7 @@ function App() {
         <main>
           <HeroSection />
           <SpeakersSection />
+          <AboutUs />
           <TimelineSection />
         </main>
         <Footer />
