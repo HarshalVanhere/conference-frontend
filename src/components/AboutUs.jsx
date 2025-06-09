@@ -37,7 +37,7 @@ const AboutUs = () => {
       ref={ref}
       sx={{
         py: { xs: 4, md: 6 },
-        background: 'linear-gradient(180deg, #e9ecef 0%, #f8f9fa 100%)',
+        background: 'linear-gradient(180deg, #bbdefb 0%, #90caf9 100%)',
         position: 'relative',
         overflow: 'hidden',
       }}

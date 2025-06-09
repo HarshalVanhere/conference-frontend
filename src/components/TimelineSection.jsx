@@ -6,6 +6,7 @@ import EventIcon from '@mui/icons-material/Event';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import SchoolIcon from '@mui/icons-material/School';
 import CelebrationIcon from '@mui/icons-material/Celebration';
+import FallingParticles from './FallingParticles';
 
 const timelineEvents = [
   {
@@ -53,6 +54,7 @@ const TimelineSection = () => {
         overflow: 'hidden',
       }}
     >
+      <FallingParticles />
       <Container maxWidth="lg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

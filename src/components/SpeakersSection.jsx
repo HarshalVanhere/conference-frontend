@@ -64,12 +64,22 @@ const SpeakersSection = () => {
       ref={ref}
       sx={{
         py: { xs: 4, md: 6 },
-        background: 'linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%)',
+        background: 'linear-gradient(180deg,rgba(227, 242, 253, 0.34) 0%, #bbdefb 0%)',
         position: 'relative',
         overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0, 
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(25, 118, 210, 0.1) 0%, transparent 50%)',
+          zIndex: 0,
+        },
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -87,6 +97,18 @@ const SpeakersSection = () => {
               textFillColor: 'transparent',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
+              position: 'relative',
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -10,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '60px',
+                height: '4px',
+                background: 'linear-gradient(45deg, #1a237e, #0d47a1)',
+                borderRadius: '2px',
+              },
             }}
           >
             Distinguished Speakers
@@ -126,33 +148,40 @@ const SpeakersSection = () => {
                       height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
-                      background: 'rgba(255, 255, 255, 0.7)',
+                      background: 'rgba(255, 255, 255, 0.9)',
                       backdropFilter: 'blur(10px)',
                       borderRadius: '16px',
                       boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
                       border: '1px solid rgba(255, 255, 255, 0.3)',
-                      transition: 'transform 0.3s ease-in-out',
+                      transition: 'all 0.3s ease-in-out',
                       '&:hover': {
                         transform: 'translateY(-8px)',
+                        boxShadow: '0 8px 40px rgba(26, 35, 126, 0.2)',
+                        '& .MuiCardMedia-root': {
+                          transform: 'scale(1.05)',
+                        },
                       },
                     }}
                   >
-                    <CardMedia
-                      component="img"
-                      height="300"
-                      image={speaker.image}
-                      alt={speaker.name}
-                      sx={{
-                        objectFit: 'cover',
-                        borderTopLeftRadius: '16px',
-                        borderTopRightRadius: '16px',
-                        width: '100%',
-                        height: '300px',
-                        aspectRatio: '1/1',
-                        objectPosition: 'center',
+                    <Box sx={{ overflow: 'hidden', borderRadius: '16px 16px 0 0' }}>
+                      <CardMedia
+                        component="img"
+                        height="300"
+                        image={speaker.image}
+                        alt={speaker.name}
+                        sx={{
+                          objectFit: 'cover',
+                          transition: 'transform 0.3s ease-in-out',
+                        }}
+                      />
+                    </Box>
+                    <CardContent 
+                      sx={{ 
+                        flexGrow: 1, 
+                        textAlign: 'center',
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%)',
                       }}
-                    />
-                    <CardContent sx={{ flexGrow: 1, textAlign: 'center' }}>
+                    >
                       <Typography
                         variant="h6"
                         component="h3"
@@ -160,6 +189,7 @@ const SpeakersSection = () => {
                           fontWeight: 600,
                           mb: 1,
                           color: 'primary.main',
+                          fontSize: '1.25rem',
                         }}
                       >
                         {speaker.name}
@@ -170,6 +200,7 @@ const SpeakersSection = () => {
                           color: 'text.secondary',
                           mb: 1,
                           fontWeight: 500,
+                          fontSize: '1rem',
                         }}
                       >
                         {speaker.title}
@@ -180,6 +211,18 @@ const SpeakersSection = () => {
                         sx={{
                           fontSize: '0.875rem',
                           lineHeight: 1.5,
+                          position: 'relative',
+                          '&::after': {
+                            content: '""',
+                            position: 'absolute',
+                            bottom: -8,
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            width: '30px',
+                            height: '2px',
+                            background: 'linear-gradient(45deg, #1a237e, #0d47a1)',
+                            borderRadius: '1px',
+                          },
                         }}
                       >
                         {speaker.expertise}
