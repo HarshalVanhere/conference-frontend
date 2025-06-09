@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, Paper } from '@mui/material';
+import { Box, Container, Typography, Paper, useMediaQuery, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import EventIcon from '@mui/icons-material/Event';
@@ -12,25 +12,25 @@ const timelineEvents = [
     date: 'March 1, 2024',
     title: 'Call for Papers',
     description: 'Submission portal opens for research papers and abstracts',
-    icon: <AssignmentIcon sx={{ fontSize: 40 }} />,
+    icon: <AssignmentIcon sx={{ fontSize: { xs: 32, sm: 40 } }} />,
   },
   {
     date: 'May 15, 2024',
     title: 'Paper Submission Deadline',
     description: 'Last date for submitting research papers and abstracts',
-    icon: <EventIcon sx={{ fontSize: 40 }} />,
+    icon: <EventIcon sx={{ fontSize: { xs: 32, sm: 40 } }} />,
   },
   {
     date: 'June 30, 2024',
     title: 'Notification of Acceptance',
     description: 'Authors will be notified about paper acceptance',
-    icon: <SchoolIcon sx={{ fontSize: 40 }} />,
+    icon: <SchoolIcon sx={{ fontSize: { xs: 32, sm: 40 } }} />,
   },
   {
     date: 'August 15-17, 2024',
     title: 'Conference Dates',
     description: 'Three days of presentations, workshops, and networking',
-    icon: <CelebrationIcon sx={{ fontSize: 40 }} />,
+    icon: <CelebrationIcon sx={{ fontSize: { xs: 32, sm: 40 } }} />,
   },
 ];
 
@@ -39,6 +39,9 @@ const TimelineSection = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box
@@ -63,6 +66,7 @@ const TimelineSection = () => {
             sx={{
               mb: { xs: 4, md: 6 },
               fontWeight: 700,
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
               background: 'linear-gradient(45deg, #1a237e, #0d47a1)',
               backgroundClip: 'text',
               textFillColor: 'transparent',
@@ -97,7 +101,7 @@ const TimelineSection = () => {
               justifyContent: 'space-between',
               position: 'relative',
               zIndex: 2,
-              flexWrap: { xs: 'wrap', md: 'nowrap' },
+              flexDirection: { xs: 'column', md: 'row' },
               gap: { xs: 3, md: 4 },
               px: { xs: 0, md: 2 },
             }}
@@ -142,21 +146,33 @@ const TimelineSection = () => {
                   <Typography
                     variant="h6"
                     component="h3"
-                    sx={{ fontWeight: 600, color: '#1a237e', mb: 1 }}
+                    sx={{ 
+                      fontWeight: 600, 
+                      color: '#1a237e',
+                      mb: 1,
+                      fontSize: { xs: '1.1rem', sm: '1.25rem' },
+                    }}
                   >
                     {event.title}
                   </Typography>
                   <Typography
                     variant="subtitle1"
                     color="primary"
-                    sx={{ mb: 1, fontWeight: 500 }}
+                    sx={{ 
+                      mb: 1, 
+                      fontWeight: 500,
+                      fontSize: { xs: '0.875rem', sm: '1rem' },
+                    }}
                   >
                     {event.date}
                   </Typography>
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{ fontStyle: 'italic' }}
+                    sx={{ 
+                      fontStyle: 'italic',
+                      fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                    }}
                   >
                     {event.description}
                   </Typography>

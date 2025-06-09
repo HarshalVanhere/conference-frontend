@@ -105,7 +105,13 @@ const SpeakersSection = () => {
             }}
           >
             {speakers.map((speaker, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
+              <Grid 
+                key={index}
+                sx={{
+                  width: { xs: '100%', sm: '50%', md: '25%' },
+                  p: { xs: 1, sm: 1.5, md: 2 },
+                }}
+              >
                 <motion.div variants={cardVariants}>
                   <Card
                     sx={{
