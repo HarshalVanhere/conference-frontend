@@ -7,25 +7,25 @@ const speakers = [
   {
     name: 'Dr. Sarah Johnson',
     title: 'Keynote Speaker',
-    image: 'https://source.unsplash.com/random/400x400?portrait=1',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
     expertise: 'Artificial Intelligence & Machine Learning',
   },
   {
     name: 'Prof. Michael Chen',
     title: 'Plenary Speaker',
-    image: 'https://source.unsplash.com/random/400x400?portrait=2',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
     expertise: 'Quantum Computing',
   },
   {
     name: 'Dr. Emily Rodriguez',
     title: 'Invited Speaker',
-    image: 'https://source.unsplash.com/random/400x400?portrait=3',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
     expertise: 'Data Science & Analytics',
   },
   {
     name: 'Prof. David Kim',
     title: 'Panel Speaker',
-    image: 'https://source.unsplash.com/random/400x400?portrait=4',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80',
     expertise: 'Cybersecurity',
   },
 ];
@@ -42,17 +42,19 @@ const SpeakersSection = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        delayChildren: 0.3,
       },
     },
   };
 
   const cardVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
-      y: 0,
       opacity: 1,
+      y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
+        ease: "easeOut",
       },
     },
   };
@@ -94,22 +96,28 @@ const SpeakersSection = () => {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
+          animate={inView ? "visible" : "hidden"}
         >
           <Grid 
             container 
-            spacing={{ xs: 3, md: 4 }}
+            spacing={3}
             sx={{
               justifyContent: 'center',
               alignItems: 'stretch',
+              flexWrap: { xs: 'wrap', md: 'nowrap' },
             }}
           >
             {speakers.map((speaker, index) => (
               <Grid 
+                item 
+                xs={12} 
+                sm={6} 
+                md={3} 
                 key={index}
                 sx={{
-                  width: { xs: '100%', sm: '50%', md: '25%' },
-                  p: { xs: 1, sm: 1.5, md: 2 },
+                  width: { md: '25%' },
+                  minWidth: { md: '25%' },
+                  flex: { md: '0 0 25%' },
                 }}
               >
                 <motion.div variants={cardVariants}>
@@ -135,35 +143,44 @@ const SpeakersSection = () => {
                       image={speaker.image}
                       alt={speaker.name}
                       sx={{
-                        borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
+                        objectFit: 'cover',
+                        borderTopLeftRadius: '16px',
+                        borderTopRightRadius: '16px',
+                        width: '100%',
+                        height: '300px',
+                        aspectRatio: '1/1',
+                        objectPosition: 'center',
                       }}
                     />
-                    <CardContent 
-                      sx={{ 
-                        flexGrow: 1, 
-                        textAlign: 'center',
-                        p: { xs: 2, sm: 3 },
-                      }}
-                    >
+                    <CardContent sx={{ flexGrow: 1, textAlign: 'center' }}>
                       <Typography
-                        gutterBottom
-                        variant="h5"
+                        variant="h6"
                         component="h3"
-                        sx={{ fontWeight: 600, color: '#1a237e' }}
+                        sx={{
+                          fontWeight: 600,
+                          mb: 1,
+                          color: 'primary.main',
+                        }}
                       >
                         {speaker.name}
                       </Typography>
                       <Typography
                         variant="subtitle1"
-                        color="primary"
-                        sx={{ mb: 1, fontWeight: 500 }}
+                        sx={{
+                          color: 'text.secondary',
+                          mb: 1,
+                          fontWeight: 500,
+                        }}
                       >
                         {speaker.title}
                       </Typography>
                       <Typography
                         variant="body2"
                         color="text.secondary"
-                        sx={{ fontStyle: 'italic' }}
+                        sx={{
+                          fontSize: '0.875rem',
+                          lineHeight: 1.5,
+                        }}
                       >
                         {speaker.expertise}
                       </Typography>
