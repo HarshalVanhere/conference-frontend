@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection';
 import SpeakersSection from './components/SpeakersSection';
 import TimelineSection from './components/TimelineSection';
 import ParticlesBackground from './components/ParticlesBackground';
+import Footer from './components/Footer';
 
 const theme = createTheme({
   palette: {
@@ -78,6 +79,7 @@ function App() {
           <SpeakersSection />
           <TimelineSection />
         </main>
+        <Footer />
       </Box>
     </ThemeProvider>
   );
