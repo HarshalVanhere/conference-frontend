@@ -44,6 +44,10 @@ const Header = () => {
     }
   };
 
+  const handleRegister = () => {
+    window.open('https://forms.gle/RR5Px8VNR547AsNj9', '_blank');
+  };
+
   const drawer = (
     <Box sx={{ width: 250 }}>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 1 }}>
@@ -76,6 +80,30 @@ const Header = () => {
             />
           </ListItem>
         ))}
+        <ListItem 
+          button 
+          onClick={handleRegister}
+          sx={{
+            mt: 2,
+            backgroundColor: 'primary.main',
+            borderRadius: '8px',
+            mx: 2,
+            '&:hover': {
+              backgroundColor: 'primary.dark',
+            },
+          }}
+        >
+          <ListItemText 
+            primary="Register Now" 
+            sx={{ 
+              textAlign: 'center',
+              '& .MuiTypography-root': {
+                fontWeight: 600,
+                color: 'white',
+              },
+            }} 
+          />
+        </ListItem>
       </List>
     </Box>
   );
@@ -125,7 +153,7 @@ const Header = () => {
                 <MenuIcon />
               </IconButton>
             ) : (
-              <Box sx={{ display: 'flex', gap: 2 }}>
+              <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
                 {menuItems.map((item) => (
                   <Button
                     key={item.text}
@@ -141,6 +169,26 @@ const Header = () => {
                     {item.text}
                   </Button>
                 ))}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleRegister}
+                  sx={{
+                    fontWeight: 600,
+                    px: 3,
+                    py: 1,
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 6px rgba(25, 118, 210, 0.2)',
+                    '&:hover': {
+                      backgroundColor: 'primary.dark',
+                      boxShadow: '0 6px 8px rgba(25, 118, 210, 0.3)',
+                      transform: 'translateY(-1px)',
+                    },
+                    transition: 'all 0.2s ease-in-out',
+                  }}
+                >
+                  Register Now
+                </Button>
               </Box>
             )}
           </Toolbar>
