@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection';
 import SpeakersSection from './components/SpeakersSection';
 import AboutUs from './components/AboutUs';
 import TimelineSection from './components/TimelineSection';
+import CallForPapers from './components/CallForPapers';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 
@@ -74,6 +75,7 @@ function App() {
             <HeroSection />
             <SpeakersSection />
             <AboutUs />
+            <CallForPapers />
             <TimelineSection />
           </Box>
           <Footer />
