@@ -76,7 +76,7 @@ const Contact = () => {
             component="h2"
             align="center"
             sx={{
-              mb: 4,
+              mb: { xs: 3, md: 6 },
               fontWeight: 700,
               background: 'linear-gradient(45deg, #1a237e, #0d47a1)',
               backgroundClip: 'text',
@@ -84,14 +84,15 @@ const Contact = () => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               position: 'relative',
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
               '&::after': {
                 content: '""',
                 position: 'absolute',
                 bottom: -10,
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '60px',
-                height: '4px',
+                width: { xs: '40px', md: '60px' },
+                height: { xs: '3px', md: '4px' },
                 background: 'linear-gradient(45deg, #1a237e, #0d47a1)',
                 borderRadius: '2px',
               },
