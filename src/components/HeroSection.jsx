@@ -89,7 +89,7 @@ const HeroSection = () => {
                 letterSpacing: '0.02em',
               }}
             >
-              International Conference on Technology
+              International Conference on Sanjivani
             </Typography>
           </motion.div>
 
