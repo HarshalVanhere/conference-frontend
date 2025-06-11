@@ -46,12 +46,23 @@ const TimelineSection = () => {
 
   return (
     <Box
+      id="timeline"
       ref={ref}
       sx={{
         py: { xs: 4, md: 6 },
-        background: 'linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%)',
+        background: 'linear-gradient(180deg, rgba(227, 242, 253, 0.34) 0%, #bbdefb 100%)',
         position: 'relative',
         overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(25, 118, 210, 0.1) 0%, transparent 50%)',
+          zIndex: 0,
+        },
       }}
     >
       <FallingParticles />

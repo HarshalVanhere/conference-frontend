@@ -37,6 +37,7 @@ const CallForPapers = () => {
 
   return (
     <Box 
+      id="call-for-papers"
       ref={ref}
       sx={{ 
         py: 8,

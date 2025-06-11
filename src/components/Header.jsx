@@ -28,7 +28,7 @@ const Header = () => {
     { text: 'Home', href: '#home' },
     { text: 'About', href: '#about' },
     { text: 'Call for Papers', href: '#call-for-papers' },
-    { text: 'Registration', href: '#registration' },
+    { text: 'Timeline', href: '#timeline' },
     { text: 'Contact', href: '#contact' },
   ];
 
@@ -36,67 +36,45 @@ const Header = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleNavigation = (href) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setMobileOpen(false);
+    }
+  };
+
   const drawer = (
-    <Box 
-      sx={{ 
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        bgcolor: 'rgba(255, 255, 255, 0.98)',
-      }}
-    >
-      <Box sx={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center',
-        p: 2,
-        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-      }}>
-        <Typography 
-          variant="h6" 
-          sx={{ 
-            fontWeight: 700,
-            color: 'primary.main',
-            fontSize: { xs: '1.1rem', sm: '1.25rem' },
-          }}
-        >
-          Conference 2024
-        </Typography>
-        <IconButton
-          color="primary"
-          onClick={handleDrawerToggle}
-          sx={{ ml: 2 }}
-        >
+    <Box sx={{ width: 250 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 1 }}>
+        <IconButton onClick={handleDrawerToggle}>
           <CloseIcon />
         </IconButton>
       </Box>
-      <List sx={{ px: 2, py: 1 }}>
+      <Divider />
+      <List>
         {menuItems.map((item) => (
-          <React.Fragment key={item.text}>
-            <ListItem
-              component="a"
-              href={item.href}
-              onClick={handleDrawerToggle}
-              sx={{
-                py: 2,
-                '&:hover': {
-                  backgroundColor: 'rgba(26, 35, 126, 0.04)',
-                  borderRadius: '8px',
-                },
-              }}
-            >
-              <ListItemText 
-                primary={item.text} 
-                primaryTypographyProps={{
+          <ListItem 
+            button 
+            key={item.text} 
+            onClick={() => handleNavigation(item.href)}
+            sx={{
+              '&:hover': {
+                backgroundColor: 'rgba(25, 118, 210, 0.08)',
+              },
+            }}
+          >
+            <ListItemText 
+              primary={item.text} 
+              sx={{ 
+                textAlign: 'center',
+                '& .MuiTypography-root': {
                   fontWeight: 500,
                   color: 'primary.main',
-                  fontSize: { xs: '1rem', sm: '1.1rem' },
-                }}
-              />
-            </ListItem>
-            <Divider sx={{ opacity: 0.1 }} />
-          </React.Fragment>
+                },
+              }} 
+            />
+          </ListItem>
         ))}
       </List>
     </Box>
@@ -142,32 +120,21 @@ const Header = () => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ 
-                  ml: 2,
-                  p: { xs: 1, sm: 1.5 },
-                }}
+                sx={{ mr: 2 }}
               >
-                <MenuIcon sx={{ fontSize: { xs: 24, sm: 28 } }} />
+                <MenuIcon />
               </IconButton>
             ) : (
-              <Box 
-                sx={{ 
-                  display: 'flex', 
-                  gap: { xs: 1, sm: 2 },
-                  alignItems: 'center',
-                }}
-              >
+              <Box sx={{ display: 'flex', gap: 2 }}>
                 {menuItems.map((item) => (
                   <Button
                     key={item.text}
-                    href={item.href}
                     color="primary"
+                    onClick={() => handleNavigation(item.href)}
                     sx={{
-                      fontSize: { xs: '0.875rem', sm: '1rem' },
-                      px: { xs: 1, sm: 2 },
-                      py: { xs: 0.5, sm: 1 },
+                      fontWeight: 500,
                       '&:hover': {
-                        backgroundColor: 'rgba(26, 35, 126, 0.04)',
+                        backgroundColor: 'rgba(25, 118, 210, 0.08)',
                       },
                     }}
                   >
@@ -179,7 +146,6 @@ const Header = () => {
           </Toolbar>
         </Container>
       </AppBar>
-
       <Drawer
         variant="temporary"
         anchor="right"
@@ -190,11 +156,10 @@ const Header = () => {
         }}
         sx={{
           display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: { xs: '100%', sm: 320 },
-            height: '100%',
-            backgroundColor: 'rgba(255, 255, 255, 0.98)',
+          '& .MuiDrawer-paper': { 
+            boxSizing: 'border-box', 
+            width: 250,
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
             backdropFilter: 'blur(10px)',
           },
         }}
