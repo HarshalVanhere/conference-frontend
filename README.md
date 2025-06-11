@@ -1,12 +1,55 @@
-# React + Vite
+# Conference Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend for the 2025 College Paper Conference
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Modern and responsive design
+- Interactive UI components
+- Smooth scrolling navigation
+- Mobile-friendly layout
+- Contact information section
+- Call for Papers section
+- Distinguished Speakers section
+- About Us section
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- Material-UI
+- CSS3
+- JavaScript
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/harshkumar123/conference-frontend.git
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm start
+```
+
+4. Build for production:
+```bash
+npm run build
+```
+
+## Deployment
+
+The site is deployed using GitHub Pages. To deploy updates:
+
+```bash
+npm run deploy
+```
+
+## Live Demo
+
+Visit the live site at: [https://harshkumar123.github.io/conference-frontend](https://harshkumar123.github.io/conference-frontend)
