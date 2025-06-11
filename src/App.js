@@ -6,6 +6,7 @@ import SpeakersSection from './components/SpeakersSection';
 import AboutUs from './components/AboutUs';
 import TimelineSection from './components/TimelineSection';
 import CallForPapers from './components/CallForPapers';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 
@@ -77,6 +78,7 @@ function App() {
             <AboutUs />
             <CallForPapers />
             <TimelineSection />
+            <Contact />
           </Box>
           <Footer />
         </Box>
