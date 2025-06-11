@@ -24,7 +24,7 @@ Frontend for the 2025 College Paper Conference
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Ekta3104/conference-frontend.git
+git clone https://github.com/ekta3104/conference-frontend.git
 ```
 
 2. Install dependencies:
@@ -52,4 +52,4 @@ npm run deploy
 
 ## Live Demo
 
-Visit the live site at: [https://Ekta3104.github.io/conference-frontend](https://Ekta3104.github.io/conference-frontend)
+Visit the live site at: [https://ekta3104.github.io/conference-frontend](https://ekta3104.github.io/conference-frontend)

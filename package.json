@@ -2,7 +2,7 @@
   "name": "conference-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Ekta3104.github.io/conference-frontend",
+  "homepage": "https://ekta3104.github.io/conference-frontend",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
